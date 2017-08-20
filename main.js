@@ -15,6 +15,7 @@ $(document).ready(function(){
 
 		// displaying the songs in the array in divs
 		this.displaySongs = function(){
+			$('#list_songs').html('')
 			for (i in tracks) {
 				$("#list_songs").append("<div class='song-display'><a href='#' class='songName' data-id='" + i + "' >" + tracks[i].songName + "</a></div>")
 			}
@@ -53,13 +54,14 @@ $(document).ready(function(){
 
 	    this.loadNext = function(){
 	    	audio.pause();
-	    	if (trackNum === tracks.length){
+	    	if (trackNum === tracks.length - 1){
 	    		trackNum = 0;
 	    	} else {
 	    		trackNum = trackNum + 1;
 	    	}
 	    	
 	    	this.loadInSong(trackNum);
+
 
 	    	return trackNum;
 	    }
@@ -69,7 +71,7 @@ $(document).ready(function(){
 	     this.loadPrev = function(){
 	    	audio.pause();
 	    	if (trackNum === 0){
-	    		trackNum = tracks.length;
+	    		trackNum = tracks.length -1;
 	    	} else {
 	    		trackNum = trackNum - 1;
 	    	}
@@ -86,9 +88,10 @@ $(document).ready(function(){
 	       let songName =  $("#addName").val();
 	       let songTitle =  $("#addTitle").val();
 	       let newSong = new Song(songName, songTitle, location)
-	       tracks.push(newSong); 
-	       $("#list_songs").append("<div class='song-display'><a href='#' class='songName' data-id='" + tracks.length + "' >" + songName + "</a></div>")
-
+	       tracks.push(newSong);
+	       this.displaySongs();
+	       // $("#list_songs").append("<div class='song-display'><a href='#' class='songName' data-id='" + tracks.length + "' >" + songName + "</a></div>")
+     		
      	}
 
 
@@ -119,12 +122,13 @@ $(document).ready(function(){
 	jukeBox.displaySongs();
 
 	//play the first song on load
-	let songList = $('.songName');
+	let songList = $('#list_songs');
 	jukeBox.loadInSong(0);
 
 	//load in selected song & play it on click
-	songList.on('click', function(){
+	$(songList).on('click', '.songName',function(){
 		let selectedSong = this.dataset.id;
+		console.log(selectedSong);
 		jukeBox.loadInSong(selectedSong);
 	});
 
