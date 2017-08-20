@@ -32,10 +32,16 @@
 
 
 <div id="urlPosition">
-    <input id="addName">Input Name:</input>
-    <input id="addTitle">Input Title:</input>
-    <input id="addSong">Input Url:</input>
-    <button id="submitBtn" onclick="jukeBox.addSong()">Add Song</button>
+    <p id="loadUp">
+        Load up Stam.m4a as example for loading a song locally:
+        <span class="newLine">Name: Stam by Static &amp; Ben El Tavori</span>  
+        <span class="newLine">Title: stam.m4a</span>
+        <span class="newLine">Url: audio/stam.m4a</span>
+    </p>
+    <input id="addName" class="sizing" placeholder="Input Name"></input>
+    <input id="addTitle" class="sizing" placeholder="Input Title"></input>
+    <input id="addSong" class="sizing" placeholder="Input Url"></input>
+    <button id="submitBtn" class="sizing" onclick="jukeBox.addSong()">Add Song</button>
 </div>
 
 
