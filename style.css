@@ -37,8 +37,10 @@ body {
 	margin-top: 0.9em;
 	border-style: solid;
 	color: white;
+	opacity: 0.85;
 	border-width: 1em;
 	border-radius: 50%
+
 }
 
 
@@ -53,7 +55,8 @@ body {
 	padding-top: 1em;
 	display: block;
 	margin: auto;
-	font-size: 2em;	
+	font-size: 2em;
+	opacity: 0.8;	
 	
 }
 
@@ -100,6 +103,7 @@ a {
 	margin-left: 4em;
 	margin-top: 2em;
 	margin-bottom: 1em;
+	opacity: 0.9;
 }
 
 .newLine {
